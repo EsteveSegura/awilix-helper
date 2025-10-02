@@ -123,6 +123,11 @@ MIT
 
 ## Release Notes
 
+### 0.0.4
+
+Stable release:
+- Update forced due to problems with ther marketplace
+
 ### 0.0.3
 
 Critical fix:
