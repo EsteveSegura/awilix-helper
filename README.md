@@ -123,6 +123,14 @@ MIT
 
 ## Release Notes
 
+### 0.0.2
+
+Bug fixes and improvements:
+- Fixed go-to-definition inside `resolve()` string literals
+- Improved auto-completion within `resolve()` calls
+- Excluded test files from indexing to prevent duplicate key conflicts
+- Better detection of Awilix registration patterns with chained methods
+
 ### 0.0.1
 
 Initial release:

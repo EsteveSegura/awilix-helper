@@ -10,20 +10,34 @@ function findKeyUnderCursor(doc, pos) {
   const line = doc.lineAt(pos.line).text;
   const wordRange = doc.getWordRangeAtPosition(pos);
 
+  // Check if we're in a resolve('key') string literal first
+  // Match both complete and incomplete strings: .resolve('key') or .resolve('ke
+  const textBefore = line.substring(0, pos.character);
+  const textAfter = line.substring(pos.character);
+
+  const resolveMatch = textBefore.match(/\.resolve\s*\(\s*(['"])([^'"]*?)$/);
+  if (resolveMatch) {
+    const quote = resolveMatch[1];
+    const keyBefore = resolveMatch[2];
+
+    // Find the end of the string (closing quote or end of line)
+    const endQuoteIndex = textAfter.indexOf(quote);
+    const keyAfter = endQuoteIndex >= 0 ? textAfter.substring(0, endQuoteIndex) : textAfter.match(/^[\w]*/)? textAfter.match(/^[\w]*/)[0] : '';
+
+    const fullKey = keyBefore + keyAfter;
+    const keyStartPos = textBefore.lastIndexOf(quote) + 1;
+
+    if (fullKey) {
+      return {
+        key: fullKey,
+        range: new vscode.Range(pos.line, keyStartPos, pos.line, keyStartPos + fullKey.length)
+      };
+    }
+  }
+
   if (!wordRange) return null;
 
   const word = doc.getText(wordRange);
-
-  // Check if we're in a resolve('key') string literal
-  const resolveMatch = line.match(/\.resolve\s*\(\s*['"]([^'"]+)['"]\s*\)/);
-  if (resolveMatch && line.indexOf(resolveMatch[1]) <= pos.character &&
-      pos.character <= line.indexOf(resolveMatch[1]) + resolveMatch[1].length) {
-    const keyStart = line.indexOf(resolveMatch[1]);
-    return {
-      key: resolveMatch[1],
-      range: new vscode.Range(pos.line, keyStart, pos.line, keyStart + resolveMatch[1].length)
-    };
-  }
 
   // Check if we're accessing cradle.key
   const cradleMatch = line.match(/\.cradle\.(\w+)/);

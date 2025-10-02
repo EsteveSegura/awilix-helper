@@ -2,7 +2,7 @@
   "name": "awilix-helper",
   "displayName": "Awilix Helper",
   "description": "LSP support for Awilix dependency injection in plain JavaScript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "EsteveSegura",
   "author": {
     "name": "Esteve Segura"
@@ -70,10 +70,15 @@
         "awilixHelper.indexIgnore": {
           "type": "array",
           "default": [
+            "**/node_modules/**",
             "**/dist/**",
             "**/out/**",
             "**/.git/**",
-            "**/node_modules/**"
+            "**/test/**",
+            "**/tests/**",
+            "**/*.test.js",
+            "**/*.spec.js",
+            "**/coverage/**"
           ],
           "description": "Paths to ignore during indexing"
         }

@@ -205,7 +205,12 @@ async function buildIndex(workspaceFolders, ignorePatterns = [], logger) {
     '**/.git/**',
     '**/data/**',
     '**/.vscode/**',
-    '**/.idea/**'
+    '**/.idea/**',
+    '**/test/**',
+    '**/tests/**',
+    '**/*.test.js',
+    '**/*.spec.js',
+    '**/coverage/**'
   ];
   const ignore = [...defaultIgnore, ...ignorePatterns];
 
