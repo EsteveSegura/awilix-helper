@@ -6,7 +6,7 @@ LSP support for [Awilix](https://github.com/jeffijoe/awilix) dependency injectio
 
 Provides IntelliSense and navigation for Awilix containers in JavaScript projects without TypeScript:
 
-### 🎯 Go to Definition
+### Go to Definition
 Jump to where dependencies are registered in the container.
 
 - **From `container.resolve('key')`** - Navigate to registration
@@ -15,7 +15,7 @@ Jump to where dependencies are registered in the container.
 
 ![Go to Definition Demo](https://raw.githubusercontent.com/your-username/awilix-helper/main/images/goto-definition.gif)
 
-### ✨ Auto-completion
+### Auto-completion
 Intelligent suggestions for registered keys.
 
 - Inside `container.resolve('...')`
@@ -24,7 +24,7 @@ Intelligent suggestions for registered keys.
 
 ![Autocomplete Demo](https://raw.githubusercontent.com/your-username/awilix-helper/main/images/autocomplete.gif)
 
-### 📖 Hover Information
+### Hover Information
 Rich documentation on hover showing:
 - Dependency kind (class, function, value)
 - Lifetime (singleton, scoped, transient)
@@ -33,7 +33,7 @@ Rich documentation on hover showing:
 
 ![Hover Demo](https://raw.githubusercontent.com/your-username/awilix-helper/main/images/hover.gif)
 
-### 🔍 Diagnostics
+### Diagnostics
 Real-time error detection for:
 - Unregistered keys in `resolve()` calls
 - Missing dependencies in constructor parameters
@@ -123,7 +123,7 @@ MIT
 
 ## Release Notes
 
-### 0.1.0
+### 0.0.1
 
 Initial release:
 - Go to definition support
