@@ -1,9 +1,9 @@
 const vscode = require('vscode');
-const { buildIndex, watchWorkspace } = require('./src/indexer');
-const { definitionProvider } = require('./src/providers/definition');
-const { completionProvider } = require('./src/providers/completion');
-const { hoverProvider } = require('./src/providers/hover');
-const { diagnosticsRunner } = require('./src/providers/diagnostics');
+const { buildIndex, watchWorkspace } = require('./indexer');
+const { definitionProvider } = require('./providers/definition');
+const { completionProvider } = require('./providers/completion');
+const { hoverProvider } = require('./providers/hover');
+const { diagnosticsRunner } = require('./providers/diagnostics');
 
 let index = null;
 let diagnostics = null;
