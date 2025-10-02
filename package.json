@@ -1,0 +1,91 @@
+{
+  "name": "awilix-helper",
+  "displayName": "Awilix Helper",
+  "description": "LSP support for Awilix dependency injection in plain JavaScript",
+  "version": "0.0.1",
+  "publisher": "EsteveSegura",
+  "author": {
+    "name": "Esteve Segura"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EsteveSegura/awilix-helper"
+  },
+  "bugs": {
+    "url": "https://github.com/EsteveSegura/awilix-helper/issues"
+  },
+  "homepage": "https://github.com/EsteveSegura/awilix-helper#readme",
+  "keywords": [
+    "awilix",
+    "dependency injection",
+    "di",
+    "ioc",
+    "javascript",
+    "intellisense",
+    "autocomplete",
+    "lsp"
+  ],
+  "icon": "ico.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "awilixHelper.showIndexStatus",
+        "title": "Awilix: Show Index Status"
+      }
+    ],
+    "configuration": {
+      "title": "Awilix Helper",
+      "properties": {
+        "awilixHelper.registerContainerNames": {
+          "type": "array",
+          "default": [
+            "container"
+          ],
+          "description": "Variable names of Awilix containers to track"
+        },
+        "awilixHelper.loadModulesGlobs": {
+          "type": "array",
+          "default": [
+            "src/**/*.js"
+          ],
+          "description": "Glob patterns for loadModules expansion"
+        },
+        "awilixHelper.generateCradleFile": {
+          "type": "boolean",
+          "default": false,
+          "description": "Generate awilix-cradle.js with JSDoc typedefs"
+        },
+        "awilixHelper.indexIgnore": {
+          "type": "array",
+          "default": [
+            "**/dist/**",
+            "**/out/**",
+            "**/.git/**",
+            "**/node_modules/**"
+          ],
+          "description": "Paths to ignore during indexing"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "fast-glob": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0"
+  }
+}
