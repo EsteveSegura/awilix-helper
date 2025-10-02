@@ -123,6 +123,12 @@ MIT
 
 ## Release Notes
 
+### 0.0.3
+
+Critical fix:
+- Fixed extension not activating when installed from VSIX
+- Included required dependencies in packaged extension (Babel, fast-glob)
+
 ### 0.0.2
 
 Bug fixes and improvements:

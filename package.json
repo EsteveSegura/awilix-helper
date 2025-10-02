@@ -2,7 +2,7 @@
   "name": "awilix-helper",
   "displayName": "Awilix Helper",
   "description": "LSP support for Awilix dependency injection in plain JavaScript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "EsteveSegura",
   "author": {
     "name": "Esteve Segura"
